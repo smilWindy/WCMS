@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WCMS项目后台管理页设计与开发</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--引入默认的easyui主题样式文件-->
+<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<script src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui//jquery.easyui.min.js"></script>
+<!--easyui本地化文件，此例为简体中文-->
+<script src="easyui/locale/easyui-lang-zh_CN.js"></script>
+</head>
+
+<body id="divLayout">
+  <div id="cc" class="easyui-layout" style="width:600px;height:400px;">
+    <div data-options="region:'north',title:'North Title',split:true" style="height:100px;" iconCLs="icon-ok"></div>
+    <div data-options="region:'south',title:'South Title',split:true" style="height:100px;"></div>
+    <div data-options="region:'east',title:'East',split:true" style="width:100px;"></div>
+    <div data-options="region:'west',title:'west',split:true" style="width:100px;">
+      <ul class="easyui-tree" data-options="url:'tree_data.json',method:'get'">
+        <li>
+          <ul>
+            <li></li>
+            <li></li>
+          </ul>
+        </li>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;">
+     <h2>Basic TreeGrid</h2>
+      <p>TreeGrid allows you to expand or collapse group rows.</p>
+      <div style="margin:20px 0;"></div>
+      <table title="Folder Browser" class="easyui-treegrid" style="width:700px;height:250px"
+              data-options="
+                  url: 'data/tab_treegrid_data.json',
+                  method: 'get',
+                  rownumbers: true,
+                  idField: 'id',
+                  treeField: 'text'
+              ">
+          <thead>
+              <tr>
+                  <th data-options="field:'text'" width="220">Name</th>
+                  <th data-options="field:'url'" width="100" align="right">Size</th>
+                  <th data-options="field:'status'" width="150">Modified Date</th>
+              </tr>
+          </thead>
+      </table>
+ 
+    </div>
+</div>
+</body>
+
+</html>

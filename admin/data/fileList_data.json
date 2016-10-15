@@ -1,0 +1,12 @@
+[
+{
+    "fId":"0001",
+    "fName":"文件名",
+    "fSize":"10kb",
+    "fType":"word",
+    "fUpDate":"2016-10-2",
+    "aTitle":"文件所属标题",
+    "tabs":"所属栏目",
+    "operate":"<a href='#'>删除</a>;<a href='#'>查看</a>"
+}
+]

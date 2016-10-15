@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WCMS项目前台内容页设计与开发</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--Bootstrap核心css文件-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+<!--引入Fontawesome核心文件-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/font-awesome.min.css">
+
+<!--可选的Bootstrap主题文件(一般不用引入)-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+
+<!--引入jQuery文件-->
+<script type="text/javascript" src="jquery/jquery-1.12.3.min.js"></script>
+
+<!--Bootstrap核心JavaScript文件-->
+<script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<!--引入bootstrap-wysiwyg插件核心文件-->
+<script type="text/javascript" src="js/bootstrap-wysiwyg.js"></script>
+<script type="text/javascript" src="js/hotkeys.js"></script>
+<!--引入css样式-->
+<link rel="stylesheet" href="css/newsChannel.css">
+<script src="js/newsChannel.js"></script>
+</head>
+<body>
+<!--顶部固定导航条开始-->
+  <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container">
+       <ul class="nav navbar-nav navbar-left">
+         <li>
+           <a href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;设为首页</a>
+         </li>
+         <li>
+           <a href="#"><span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;收藏本站</a>
+         </li>
+       </ul>
+       
+       <ul class="nav navbar-nav navbar-right">
+         <li>
+            <a href="#" data-toggle="modal" data-target="#userLoginModal"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;登录</a>
+         </li>
+         <li>
+            <a href="#" data-toggle="modal" data-target="#userRegisterModal"><span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;注册</a>
+         </li>
+       </ul>    
+    </div>
+  </nav>
+  <!--logo与站内搜索框开始-->
+   <div class="container" style="margin-top:60px;"><!--logo与站内搜索框-->
+         <div class="row">
+           <div class="col-sm-5 col-xs-12">
+           <!--定义logo图片-->
+             <img src="images/q3.jpg" id="logo" alt="网站logo" class="img-responsive" />
+           </div>
+           <div class="col-sm-7 col-xs-12">
+             <!--定义表单-->
+             <form id="frmSearch" action="#">
+               <!--input-group定义Bootstrap输入框组件容器-->
+               <div class="input-group">
+                 <input type="text" class="form-control" placeholder="请输入关键字进行站内搜索"/>
+                 <!--定义搜索按钮-->
+                 <span class="input-group-btn">
+                   <input type="submit" value="搜索" class="btn btn-default"/>
+                 </span>
+               </div>
+             </form>
+           </div>
+         </div>
+      </div>
+  <!--导航条开始-->
+  <nav class="navbar navbar-default">
+          <!--定义导航条内容居中容器-->
+      <div class="container">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+        </button>
+        <!--<div class="navbar-header">
+          <a class="navbar-brand" href="#">软件学院</a>
+        </div>-->
+        <ul class="nav navbar-nav">
+          <li><a href="#">首页</a></li>
+         <!-- <li><a href="#">学校概况</a></li>-->
+         <!--给学校概况设计一个下拉的二级导航条-->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">学院概况
+              <span class="caret"></span><!--这条语句的作用是出现一个倒三角形-->
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="#">学院简介</a></li>
+               <li><a href="#">学院领导</a></li>
+               <li><a href="#">组织机构</a></li>
+               <li><a href="#">专业设置</a></li>
+               <li><a href="#">师资力量</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown">教育教学<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="#">教学动态</a></li>
+               <li><a href="#">国家平台</a></li>
+               <li><a href="#">实践教学</a></li>
+               <li><a href="#">教研教改</a></li>
+               <li><a href="#">大学生科技创新</a></li>
+               <li><a href="#">校企合作</a></li>
+               <li><a href="#">管理制度</a></li>
+               <li><a href="#">常用下载</a></li>
+             </ul>
+          </li>
+          <li class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown">科学研究<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+                <li><a href="#">通知公告</a></li>
+                <li><a href="#">学术动态</a></li>
+                <li><a href="#">学科建设</a></li>
+                <li><a href="#">科研课题</a></li>
+                <li><a href="#">科研成果</a></li>
+             </ul>
+          </li>
+          <li>
+             <a class="dropdown-toggle" data-toggle="dropdown">学生工作<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+                <li><a href="#">学生管理</a></li>
+                <li><a href="#">学生风采</a></li>
+                <li><a href="#">校园文化</a></li>
+                <li><a href="#">素质教育</a></li>
+                <li><a href="#">校友之家</a></li>
+             </ul>
+          </li>
+          <li>  
+             <a class="dropdown-toggle" data-toggle="dropdown">招生就业<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="#">专业介绍</a></li>
+               <li><a href="#">招生信息</a></li>
+               <li><a href="#">就业信息</a></li>
+             </ul>
+          </li>
+          <li><a href="#">专业介绍</a>
+          </li>
+          <li><a href="#">党群工作</a>
+          </li>
+          <li>
+              <a class="dropdown-toggle" data-toggle="dropdown">院务公开<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><a href="#">通知公告</a></li>
+                 <li><a href="#">新闻资讯</a></li>
+                 <li><a href="#">电子院报</a></li>
+                 <li><a href="#">人才引进</a></li>
+              </ul>
+          </li>
+          <li><a href="#">新闻资讯</a></li>
+        </ul>
+      </div>
+  </nav>
+  <!--主体内容开始-->
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+       <div class="col-xs-12 col-md-12 col-sm-12 col-lg-12">
+        <div class="scrollNotice">
+          <div id="noticeTip">通知公告</div>
+          <ul>
+            <li><a href="#"><span class="glyphicon glyphicon-volume-up"></span>&nbsp;&nbsp;通知1代理商的空间按当时大量数据都是靠大家</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-volume-up"></span>&nbsp;&nbsp;通知2</a></li>
+          </ul>
+        </div>
+       </div>
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 my-container">
+         <div class="panel panel-primary">
+           <div class="panel-heading">
+             <h3 class="panel-title">
+                <span class="glyphicon glyphicon-hand-right"></span>
+                &nbsp;&nbsp;当前位置:<a href="#" class="">首页</a>&nbsp;&gt;&nbsp;
+                <a href="#">新闻资讯</a>&nbsp;&gt;&nbsp;正文
+             </h3>
+           </div>
+           <div class="panel-body">
+             <div id="divArcticle">
+               <h3 class="text-center">新闻标题</h3>
+               <h5 class="text-center"><small>发布时间:2011-7-11</small></h5>
+               <div class="thumbnail">
+                 <img src="images/b4.jpg" style="width:100%;height:200px;">
+               </div>
+               <div id="artContent">
+                  <p>新闻主要内容省啥U盾还有我顿悟女生都会是窦唯和南沙</p>
+               </div>
+             </div>
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h3 class="panel-title"><span class="glyphicon glyphicon-hand-right">
+                 </span>&nbsp;&nbsp;新闻评论</h3>
+               </div>
+               <div class="panel-body">
+                  <div class="comment">
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img src="images/b17.jpg" width="60px" height="60px" alt="" 
+                       class="media-object img-circle" />
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">用户239322</h4>
+                        <p>用户评论文字省略</p>
+                      </div>
+                    </div>
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img src="images/b4.jpg" width="60px" height="60px" alt="" 
+                       class="media-object img-circle" />
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">用户239322</h4>
+                        <p>用户评论文字省略</p>
+                      </div>
+                    </div>
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img src="images/b1.jpg" width="60px" height="60px" alt="" 
+                       class="media-object img-circle" />
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">用户239322</h4>
+                        <p>用户评论文字省略</p>
+                      </div>
+                    </div>
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img src="images/b17.jpg" width="60px" height="60px" alt="" 
+                       class="media-object img-circle" />
+                      </a>
+                      <div class="media-body">
+                        <h4 class="media-heading">用户239322</h4>
+                        <p>用户评论文字省略</p>
+                      </div>
+                    </div>
+                  </div>  
+               </div>
+             </div>
+             <!--评论框制作待续-->
+             <div class="panel panel-primary">
+               <div class="panel-heading">
+                 <h3 class="panel-title">
+                   <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;发表评论
+                 </h3>
+               </div>
+               <div class="panel-body">
+                 <form class="form-horizontal">
+                   <!--评论工具栏待制作-->
+                   <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+                     <div class="btn-group">
+                       <a href="#" data-edit="italic" title="斜体" class="btn btn-default">
+                       <i class="fa fa-italic"></i>
+                       </a>
+                      <a href="#" data-edit="bold" title="粗体" class="btn btn-default">
+                      <i class="fa fa-bold"></i>
+                      </a>
+                      <a href="#" data-edit="strikethrough" title="删除线" class="btn btn-default">
+                      <i class="fa fa-strikethrough"></i>
+                      </a>
+                      <a href="#" data-edit="underline" title="下划线" class="btn btn-default">
+                      <i class="fa fa-underline"></i>
+                      </a>
+                     </div>
+
+                     <div class="btn-group">
+                       <a href="#" data-edit="justifyleft" title="左对齐" class="btn btn-default">
+                       <i class="fa fa-align-left"></i>
+                       </a>
+                      <a href="#" data-edit="justifycenter" title="居中对齐" class="btn btn-default">
+                      <i class="fa fa-align-center"></i>
+                      </a>
+                      <a href="#" data-edit="justifyright" title="右对齐" class="btn btn-default">
+                      <i class="fa fa-align-right"></i>
+                      </a>
+                      <a href="#" data-edit="justifyfull" title="两端对齐" class="btn btn-default">
+                      <i class="fa fa-align-justify"></i>
+                      </a>
+                     </div>
+                   </div>
+                   <!--/评论工具栏待制作-->
+
+                   <!--评论框制作-->
+                   <div id="editor" class="form-control">请文明发表评论</div>
+                   <button class="btn btn-primary">发表评论</button>
+                   <!--/评论框制作-->
+
+                 </form>
+               </div>
+             </div>
+             <!--/评论框制作-->
+
+           </div>
+         </div>
+       </div>
+      </div>
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+         <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+             <div class="panel panel-primary" id="hotNews">
+               <div class="panel-heading">
+                 <h3 class="panel-title">
+                   <span class="icon-eye-open"> </span>&nbsp;&nbsp;最热新闻
+                 </h3>
+               </div>
+               <ul class="list-group">
+                  <a href="#" target="_blank" class="list-group-item">
+                    <span class="badge pull-left badgetop3">1</span>&nbsp;&nbsp;最热新闻标题一
+                  </a>
+                  <a href="#" target="_blank" class="list-group-item">
+                    <span class="badge pull-left badgetop3">2</span>&nbsp;&nbsp;最热新闻标题一
+                  </a>
+                  <a href="#" target="_blank" class="list-group-item">
+                    <span class="badge pull-left badgetop3">3</span>&nbsp;&nbsp;最热新闻标题一
+                  </a>
+                  <a href="#" target="_blank" class="list-group-item">
+                    <span class="badge pull-left">4</span>&nbsp;&nbsp;最热新闻标题一
+                  </a>
+                  <a href="#" target="_blank" class="list-group-item">
+                    <span class="badge pull-left ">5</span>&nbsp;&nbsp;最热新闻标题一
+                  </a>
+               </ul>
+             </div>
+          </div>
+          <!--精彩评论制作开始-->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+             <div class="panel panel-primary">
+                <div class="panel-heading">
+                   <h3 class="panel-title">
+                      <a href="#" class="pull-left">更多.......</a>
+                      <span class="fa fa-thumbs-o-up"></span>&nbsp;&nbsp;精彩评论
+                   </h3>
+                </div>
+                <!--使用Bootstrap折叠面板实现精彩评论内容-->
+                <div class="panel-group" id="accordion">
+                  <div class="panel">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" class="list-group-item">原文：诺贝尔奖获得者罗伊.格劳博教授来我院讲学</a>
+                    <div id="collapseOne" class="panel-collapse collapse in"  >
+                     <div class="panel-body">
+                      <a class="list-group-item"><span class="fa fa-comment"> </span>&nbsp;精彩评论...</a>
+                      
+                    </div>
+                   </div>
+                  </div>
+                  <div class="panel">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="list-group-item">原文：诺贝尔奖获得者罗伊.格劳博教授来我院讲学</a>
+                     <div id="collapseTwo" class="panel-collapse collapse"  >
+                      <div class="panel-body">
+                       <a class="list-group-item"><span class="fa fa-comment"> </span>&nbsp;精彩评论...</a>
+                      
+                     </div>
+                    </div>
+                </div>
+             </div>
+          </div>
+          <!--精彩评论制作结束-->
+          <!--专业教育平台制作开始-->
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+             <div class="panel panel-primary" id="jiaoyu">
+               <div class="panel-heading">
+                 <h3 class="panel-title">
+                   <span class="glyphicon glyphicon-road"></span>&nbsp;&nbsp;专业教育平台
+                 </h3>
+               </div>
+               <!--使用Bootstrap网格系统和jQuery实现专业教育平台内容-->
+               <ul class="list-group" id="ulPEPlatform">
+                  <li class="list-group-item">
+                    <a href="#" target="_blank">
+                       <span class="fa fa-mortar-board fa-2x pull-left"></span>
+                       国家工程实践教育中心云教育平台 
+                    </a>
+                    <div class="divPicText">
+                      <p>平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字...</p>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" target="_blank">
+                       <span class="fa fa-mortar-link fa-2x pull-left"></span>
+                       软件工程专业教育平台 
+                    </a>
+                    <div class="divPicText">
+                      <p>平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字平台的详细文字介绍，可自行增加文字...</p>
+                    </div>
+                  </li>
+               </ul>
+             </div>
+          </div>
+          <!--专业教育平台制作结束-->
+        </div>
+      </div>  
+    </div>
+  </div>
+  <!--主体内容结束-->
+  <!--底部版权信息开始-->
+  <footer id="divFooter">
+        <div class="container">
+          <div class="row rowLinkLogo">
+            <div class="col-md-3 col-xs-4 col-sm-3 col-lg-3n leftLink ">
+               <ul>
+                 <li><a href="#">学院概况</a></li>
+                 <li><a href="#">教育教学</a></li>
+                 <li><a href="#">科学研究</a></li>
+                 <li><a href="#">学生工作</a></li>
+                 <li><a href="#">招生就业</a></li>
+                 <li><a href="#">专业介绍</a></li>
+               </ul>
+            </div>
+            <div class="col-xs-4 col-md-6 col-sm-6 col-lg-6 centerLogo">
+               <center>
+                 <img class="img-responsive" src="images/b9.jpg" width="60px" height="50px"/>
+               </center>
+               <p>0744-8358630 | 0744-8202008
+                 <br/><a href="#">jsdxrjxy@163.com</a>
+               </p>
+            </div>
+            <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 rightLink">
+              <ul>
+                <li><a href="#">吉首大学</a></li>
+                <li><a href="#">中软国际</a></li>
+                <li><a href="#">中软国际ETC</a></li>
+                <li><a href="#">青软培训</a></li>
+                <li><a href="#">苏软培训</a></li>
+                <li><a href="#">深圳软酷</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="divCopyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <center>
+                  地址：湖南科技大学 |
+                  版权所有：湖南科技大学计算机学院
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+  <!--底部版权信息结束-->
+  <!--注册模态弹窗制作开始-->
+      <div class="container">
+       <div class="modal fade" id="userRegisterModal" role="dialog" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                 <!--这行代码会出现一个叉来关闭弹窗-->
+                 <input type="button" value="&times;" class="close" data-dismiss="modal" aria-hidden="true" />
+                 <h4 class="modal-title">
+                   <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户注册
+                 </h4>
+               </div>
+               
+               <div class="modal-body">
+                  <div class="row">
+                    <div class="userRegisterText">用户名</div>
+                    <div class="userRegisterInput">
+                      <input type="text" class="form-control" name="username"/>
+                      <p class="userRegisterNotice">6~18个字符，可以使用字母、数字、下划线需以字母开头</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="userRegisterText">密码</div>
+                    <div class="userRegisterInput">
+                      <input type="password" class="form-control" name="psw"/>
+                      <p class="userRegisterNotice">6~16个字符，区分大小写</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="userRegisterText">确认密码</div>
+                    <div class="userRegisterInput">
+                      <input type="password" class="form-control" name="psw"/>
+                      <p class="userRegisterNotice">请再次填写密码</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="userRegisterText">Email</div>
+                    <div class="userRegisterInput">
+                      <input type="text" class="form-control" name="email"/>
+                      <p class="userRegisterNotice">Email格式:rjxy@163.com</p>
+                    </div>
+                  </div>
+
+               </div>
+               <div class="modal-footer">
+                  <input type="submit" class="btn btn-success" value="立即注册"/>
+               </div>    
+            </div>
+         </div>
+       </div>
+      <div>
+      <!--注册模态弹窗制作结束-->
+      
+      <!--登录模态弹窗制作开始-->
+      <div class="container">
+       <div class="modal fade" id="userLoginModal" role="dialog" aria-hidden="true">
+         <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+             <form id="frmUserLogin" class="form-horizontal">
+               <div class="modal-header">
+                 <!--这行代码会出现一个叉来关闭弹窗-->
+                 <input type="button" value="&times;" class="close" data-dismiss="modal" aria-hidden="true" />
+                 <h4 class="modal-title">
+                   <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户登录
+                 </h4>
+               </div>
+               
+               <div class="modal-body">
+                  <p>
+                    <input type="text" class="form-control" placeholder="用户名/手机号/邮箱账号"/>
+                  </p>
+                  <p>
+                    <input type="password" class="form-control" placeholde="密码"/>
+                  </p>
+                  <p>
+                    <label class="checkbox-inline">
+                    <input type="checkbox"/>十天免登录
+                    </label>
+                  </p>
+               </div>
+               <div class="modal-footer">
+                  <input type="submit" class="btn btn-success" value="登&nbsp;&nbsp;录"/>
+               </div>    
+            </div>
+         </div>
+       </div>
+      <div>
+      <!--登录模态弹窗制作结束-->
+  
+  <!--回到顶部制作开始-->
+  <a href="#0" class="cd-top">Top</a>
+  <!--回到顶部制作结束-->
+  
+  <!--侧栏分享制作开始-->
+  <div class="scrollsidebar" id="scrollsidebar">
+    <div class="side_content">
+      <div class="side_list">
+        <div class="side-title">
+          <a class="close_btn"><span></span></a>
+        </div>
+        <div class="side_center">
+          <div class="custom_service">
+            <p>
+              <a href="#" target="_blank">
+                <img src="images/b7.jpg" height="20px" width="20px" alt=""><br/>
+                <span>qq空间</sapn>
+              </a>
+              <a href="#" target="_blank">
+                <img src="images/b7.jpg" height="20px" width="20px" alt=""><br/>
+                <span>微信</sapn>
+              </a>
+            
+              <a href="#" target="_blank">
+                <img src="images/b7.jpg" height="20px" width="20px" alt=""><br/>
+                <span>QQ</sapn>
+              </a>
+            </p>
+          </div>
+        </div>
+        <div class="side_bottom"></div>
+      </div>
+    </div>
+    <div class="show_btn"></div>
+  </div>
+  <!--侧栏分享制作结束-->
+</body>
+</html>

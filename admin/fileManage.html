@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>文件管理制作</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--引入默认的easyui主题样式文件-->
+<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<script src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<!--easyui本地化文件，此例为简体中文-->
+<script src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" href="css/fileManage.css">
+<script type="text/javascript" src="js/fileManage.js"></script>
+</head>
+<body>
+    <!--实现文件工具管理栏-->
+    <div id="fileTool" style="padding:8px 0;">
+        <a href="javascript:void(0)" id="aDelFile"  class="easyui-linkbutton" data-options="plain:true" iconCLs="icon-cancel">批量删除文件</a>
+        <div style="display:inline-block;padding-left: 30px;border-left: 1px solid #cccacc;">
+            <label for="">搜索:</label>
+            <input type="text" class="easyui-searchbox" style="width:300px;" data-options="prompt:'请输入要搜索的文件名称',menu:'#tabList'">
+        </div>
+    </div>
+    <!--/实现文件工具管理栏-->
+
+    <!--定义搜索框的下拉搜索类型-->
+    <div id="tabList">
+        <div data-options="name:'allType'">所有类型</div>
+        <div data-options="name:'picType'">图片</div>
+        <div data-options="name:'docType'">doc文档</div>
+    </div>
+    <!--/定义搜索框的下拉搜索类型-->
+
+    <div class="easyui-layout" style="width:100%;height:400px;">
+        <div data-options="region:'west',split:true" title="文件所属栏目" style="width:200px" >
+            <ul class="easyui-tree" data-options="url:'data/tab_treegrid_data.json',method:'get',animate:true,lines:true"> 
+            </ul>
+        </div>
+        <div data-options="region:'center',split:true" title="文件列表">
+            <table class="easyui-datagrid" title="文章列表" id="fileList" data-options="url:'data/fileList_data.json',method:'get',showFooter:true,pagination:true,rownumbers:true,pageSize:10,pageList:[5,10,15],idField:'fId',fit:true">
+                <thead>
+                    <tr>
+                        <th data-options="field:'fId'">ID</th>
+                        <th data-options="field:'fName'">文件名</th>
+                        <th data-options="field:'fSize'">文件大小</th>
+                        <th data-options="field:'fType'">文件类型</th>
+                        <th data-options="field:'fUpDate'">上传日期</th>
+                        <th data-options="field:'aTitle'">所属文章标题</th>
+                        <th data-options="field:'tabs'">所属栏目</th>
+                        <th data-options="field:'operate'">操作</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>文章管理页制作</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--引入默认的easyui主题样式文件-->
+<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<script src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<!--easyui本地化文件，此例为简体中文-->
+<script src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" href="css/articleManage.css">
+<script type="text/javascript" src="js/articleManage.js"></script>
+</head>
+<body>
+    <!--文章的自定义工具栏-->
+    <div id="articleTool" style="padding:8px 0;">
+        <a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" onclick="addArticle('新增文章','addArticle.html')" iconCLs="icon-add">新增文章</a>
+        <a id="aDelArticle" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" iconCLs='icon-cancel'>删除文章</a>
+        <a id="aPushArticle" href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true" iconCLs="icon-ok">推荐文章</a>
+        <div style="display:inline-block;padding-left: 30px;border-left: 1px solid #cccacc;">
+            <label for="">搜索:</label>
+            <input type="text" class="easyui-searchbox" style="width:300px;" data-options="prompt:'请输入要搜索的文章标题'">
+        </div>
+
+    </div>
+
+    <table class="easyui-datagrid" title="文章列表" id="articleList" data-options="url:'data/articleList_data.json',method:'get',showFooter:true,pagination:true,rownumbers:true,pageSize:10,pageList:[5,10,15],idField:'aId'">
+        <thead>
+            <tr>
+                <th data-options="field:'aId'">ID</th>
+                <th data-options="field:'aTitle'">表题</th>
+                <th data-options="field:'tabs'">所属栏目</th>
+                <th data-options="field:'entryDate'">录入时间</th>
+                <th data-options="field:'aPush'">是否推荐</th>
+                <th data-options="field:'operate'">操作</th>
+            </tr>
+        </thead>
+        <!--<tbody>
+            <tr>
+                <td>0001</td>
+                <td>学院获评"中国外包学院教育机构最佳实践五强"</td>
+                <td>新闻资讯</td>
+                <td>2014-11-20</td>
+                <td>是</td>
+                <td><a href="#">编辑</a></td>
+            </tr>
+        </tbody>-->
+    </table>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>栏目列表页制作</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--引入默认的easyui主题样式文件-->
+<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+<script src="easyui/jquery.min.js"></script>
+<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+<!--easyui本地化文件，此例为简体中文-->
+<script src="easyui/locale/easyui-lang-zh_CN.js"></script>
+<link rel="stylesheet" href="css/tabManage.css">
+<script type="text/javascript" src="js/tabManage.js"></script>
+
+</head>
+<body>
+    <div class="easyui-panel" style="padding:10px;margin:10px 0;width:100%;">
+        <!--右键点击某个栏目的时候出现快捷菜单-->
+        <!--<div id="rMenu" class="easyui-menu" style="width:120px;">
+            <div data-options="iconCLs:icon-add">新增栏目</div>
+            <div class="menu-sep"></div>
+            <div data-options="iconCLs:icon-edit">
+              <a href="javascript:void(0)" onclick="edit()">编辑栏目</a>
+            </div>
+            <div class="menu-sep"></div>
+            <div data-options="iconCLs:icon-cancel">删除栏目</div>
+            <div class="menu-sep"></div>
+            <div data-options="iconCLs:icon-map-clipboard">合并栏目</div>
+        </div>-->
+        <!--/右键点击某个栏目的时候出现快捷菜单-->
+        <a href="#" class="easyui-linkbutton" iconCLs="icon-add" onclick="$('#addTabWindow').window('open')">新增栏目</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCLs="icon-edit" onclick="edit()">编辑栏目</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCLs="icon-save" onclick="save()">保存栏目</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" iconCLs="icon-undo" onclick="cancel()">取消栏目</a>
+        <a href="javascript:void(0)" id="aDel" class="easyui-linkbutton" iconCLs="icon-cancel">删除栏目</a>
+        <a href="#" class="easyui-linkbutton" iconCLs="icon-map-clipboard">合并栏目</a>
+    </div>
+    
+    <table id="tt" title="网站栏目列表" class="easyui-treegrid" style="width:100%;height:300px"
+        data-options="
+        url:'data/tab_treegrid_data.json',
+        idField:'id',
+        treeField:'text',
+        rownumbers:true,
+        method:'get'">
+    <thead>
+        <tr>
+            <th data-options="field:'text',width:140,editor:'text'">名称</th>
+            <th data-options="field:'url',width:140,editor:'text'">链接</th>
+            <th data-options="field:'status',width:140,editor:'text'">状态</th>
+        </tr>
+    </thead>
+</table>
+<div id="addTabWindow" class="easyui-window" title="新增栏目" data-options="iconCLs:'icon-add',closed:true,inline:true">
+    <form action="" id="frmAddTab" method="post">
+        <p>
+            <label for="">父栏目</label>
+            <input type="text" class="easyui-combotree" data-options="url:'data/tab_treegrid_data.json',method:'get'">
+        </p>
+        <p><label for="">栏目名称</label><input type="text" class="easyui-textbox"></p>
+        <p><label for="">栏目链接</label><input type="text" class="easyui-textbox"></p>
+        <p>
+            <label for="">是否可用</label>
+            <input type="radio" name="ruse">是
+            <input type="radio" name="ruse">否
+        </p>
+        <div class="divfoot">
+            <a href="#" class="easyui-linkbutton">提交</a>
+        </div>
+
+    </form>
+</div>
+</body>
+</html>

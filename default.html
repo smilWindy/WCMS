@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WCMS项目前台设计与开发</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--Bootstrap核心css文件-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+
+<!--可选的Bootstrap主题文件(一般不用引入)-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+
+<!--引入jQuery文件-->
+<script type="text/javascript" src="jquery/jquery-1.12.3.min.js"></script>
+
+<!--Bootstrap核心JavaScript文件-->
+<script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+<!--引入css样式-->
+<link rel="stylesheet" href="css/style.css">
+</head>
+    <body>
+    <!--定义一个页面居中容器，针对不同的设备终端，宽度不一样-->
+      <div class="container"><!--logo与站内搜索框-->
+         <div class="row">
+           <div class="col-sm-5 col-xs-12">
+           <!--定义logo图片-->
+             <img src="images/q3.jpg" id="logo" alt="网站logo" class="img-responsive" />
+           </div>
+           <div class="col-sm-7 col-xs-12">
+             <!--定义表单-->
+             <form id="frmSearch" action="#">
+               <!--input-group定义Bootstrap输入框组件容器-->
+               <div class="input-group">
+                 <input type="text" class="form-control" placeholder="请输入关键字进行站内搜索"/>
+                 <!--定义搜索按钮-->
+                 <span class="input-group-btn">
+                   <input type="submit" value="搜索" class="btn btn-default"/>
+                 </span>
+               </div>
+             </form>
+           </div>
+         </div>
+      </div>
+    <!--定义bootstrap导航条组件容器，采用默认风格样式-->
+      <div class="navbar navbar-default" role="navigation">
+      <!--定义导航条内容居中容器-->
+      <div class="container">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+        </button>
+        <!--<div class="navbar-header">
+          <a class="navbar-brand" href="#">软件学院</a>
+        </div>-->
+        <ul class="nav navbar-nav">
+          <li><a href="#">首页</a></li>
+         <!-- <li><a href="#">学校概况</a></li>-->
+         <!--给学校概况设计一个下拉的二级导航条-->
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">学院概况
+              <span class="caret"></span><!--这条语句的作用是出现一个倒三角形-->
+            </a>
+            <ul class="dropdown-menu">
+               <li><a href="#">学院简介</a></li>
+               <li><a href="#">学院领导</a></li>
+               <li><a href="#">组织机构</a></li>
+               <li><a href="#">专业设置</a></li>
+               <li><a href="#">师资力量</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown">教育教学<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="#">教学动态</a></li>
+               <li><a href="#">国家平台</a></li>
+               <li><a href="#">实践教学</a></li>
+               <li><a href="#">教研教改</a></li>
+               <li><a href="#">大学生科技创新</a></li>
+               <li><a href="#">校企合作</a></li>
+               <li><a href="#">管理制度</a></li>
+               <li><a href="#">常用下载</a></li>
+             </ul>
+          </li>
+          <li class="dropdown">
+             <a class="dropdown-toggle" data-toggle="dropdown">科学研究<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+                <li><a href="#">通知公告</a></li>
+                <li><a href="#">学术动态</a></li>
+                <li><a href="#">学科建设</a></li>
+                <li><a href="#">科研课题</a></li>
+                <li><a href="#">科研成果</a></li>
+             </ul>
+          </li>
+          <li>
+             <a class="dropdown-toggle" data-toggle="dropdown">学生工作<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+                <li><a href="#">学生管理</a></li>
+                <li><a href="#">学生风采</a></li>
+                <li><a href="#">校园文化</a></li>
+                <li><a href="#">素质教育</a></li>
+                <li><a href="#">校友之家</a></li>
+             </ul>
+          </li>
+          <li>  
+             <a class="dropdown-toggle" data-toggle="dropdown">招生就业<span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="#">专业介绍</a></li>
+               <li><a href="#">招生信息</a></li>
+               <li><a href="#">就业信息</a></li>
+             </ul>
+          </li>
+          <li><a href="#">专业介绍</a>
+          </li>
+          <li><a href="#">党群工作</a>
+          </li>
+          <li>
+              <a class="dropdown-toggle" data-toggle="dropdown">院务公开<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><a href="#">通知公告</a></li>
+                 <li><a href="#">新闻资讯</a></li>
+                 <li><a href="#">电子院报</a></li>
+                 <li><a href="#">人才引进</a></li>
+              </ul>
+          </li>
+          <li><a href="#">新闻资讯</a></li>
+        </ul>
+      </div>
+      </div>
+
+      <div class="container">
+       <div class="row">
+         <div class="col-xs-12 col-sm-4">
+           <div class="panel panel-primary">
+             <div class="panel-heading">
+               <h3 class="panel-title">
+                 <a href="#" style="float:right;">更多......</a>
+                 <span class="glyphicon glyphicon-volume-up"></span>
+                 &nbsp;&nbsp;通知公告
+               </h3>
+             </div>
+               <!--通知公告列表位置-->
+               <ul class="list-group">
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">通知公告标题一</a>
+                 </li>
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">通知公告标题二通知公告标题二通知公告标题二通知公告标题二通知公告标题二</a>
+                 </li>
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">通知公告标题二通知公告标题二通知公告标题二通知公告标题二通知公告标题二</a>
+                 </li>
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">通知公告标题二通知公告标题二通知公告标题二通知公告标题二通知公告标题二</a>
+                 </li>
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">通知公告标题二通知公告标题二通知公告标题二通知公告标题二通知公告标题二</a>
+                 </li>
+                 
+                 
+                 
+                 <!--通过li标签增加新的公告通知-->
+               </ul>
+           </div>
+         </div>
+
+         <div class="col-xs-12 col-sm-5">
+           <div id="carousel-news" class="carousel slide" data-ride="carousel">
+             <!--定义轮播图片容器-->
+             <div class="carousel-inner" role="listbox">
+               <div class="item active">
+                 <img src="images/b5.jpg" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b3.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <!--通过复制140到146行可以实现一个新的图片轮播-->
+               <div class="item">
+                 <img src="images/b4.jpg" alt=""  style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b2.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b7.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b8.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b7.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b7.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b7.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b7.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+               <div class="item">
+                 <img src="images/b7.jpg" alt="" style="width:455px;height:238px;"/>
+                 <div class="carousel-caption" contenteditable="true">
+                   <h4>新闻标题</h4>
+                   <p>新闻内容简介</p>
+                 </div>
+               </div>
+             </div>
+
+             <!--定义圆圈指示符-->
+             <ol class="carousel-indicators">
+               <li class="active" data-target="#carousel-news" data-slide-to="0"></li>
+               <li data-target="#carousel-news" data-slide-to="1"></li>
+               <li  data-target="#carousel-news" data-slide-to="2"></li>
+               <li  data-target="#carousel-news" data-slide-to="3"></li>
+               <li  data-target="#carousel-news" data-slide-to="4"></li>
+               <li  data-target="#carousel-news" data-slide-to="5"></li>
+             </ol>
+             <!--定义左右控制按钮-->
+             <a class="left carousel-control" href="#carousel-news" role="button" data-slide="prev">
+               <span class="glyphicon glyphicon-chevron-left"></span>
+               <span class="sr-only">Previous</span>
+             </a>
+             <a class="right carousel-control" href="#carousel-news" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                 <span class="sr-only">Next</span>
+             </a>
+           </div>
+
+         </div>
+
+         <div class="col-xs-12 col-sm-3">
+           <div class="panel panel-primary">
+             <div class="panel-heading">
+               <h3 class="panel-title">
+                 <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户登录
+               </h3>
+             </div>
+             <div class="panel-body">
+               <form class="form-horizontal" role="form">
+                 <p>
+                   <input type="text" class="form-control" placeholder="用户名/手机号/邮箱账号"/>
+                 </p>
+                 <p>
+                   <input type="password" class="form-control" placeholder="密码"/>
+                 </p>
+                 <p>
+                   <label class="checkbox-inline">
+                     <input type="checkbox"/>十天内免登陆
+                   </label>
+                 </p>
+                 <p>
+                   <input type="button" class="btn btn-success" value="登&nbsp;&nbsp;录"/>
+                   <input type="button" class="btn btn-default" value="注&nbsp;&nbsp;册" data-toggle="modal" data-target="#userRegisterModal"/>
+
+                 </p>
+
+               </form>
+             </div>
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-xs-12 col-sm-4">
+           <div class="panel panel-primary">
+             <div class="panel-heading">
+               <h3 class="panel-title">
+                 <a href="#" style="float:right;">更多......</a>
+                 <span class="glyphicon glyphicon-volume-up"></span>
+                 &nbsp;&nbsp;新闻资讯
+               </h3>
+             </div>
+               <!--新闻资讯列表位置-->
+               <ul class="list-group">
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">诺贝尔奖获得者莫言来我院讲学</a>
+                 </li>
+                 <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  <li class="list-group-item">
+                   <a href="#" target="_blank">学院获评“中国服务外包教育机构最佳实践五强”</a>
+                 </li>
+                  
+                 <!--通过li标签增加新的公告通知-->
+               </ul>
+           </div>
+         </div>
+         <div class="col-xs-12 col-sm-5">
+           <video id="video" src="paddle-steamer.webm" controls muted >
+                您的浏览器不支持video标签，请下载支持html5的浏览器!!
+           </video>
+         
+         </div>
+
+         <!--选项卡面板制作，招生就业列表-->
+         <div class="col-xs-12 col-sm-3">
+            <div class="panel panel-primary">
+               <!--选项卡选项-->
+               <ul class="nav nav-tabs" id="tab_ul">
+                  <li class="active">
+                     <a href="#zsxx" id="zsxx_a" data-toggle="tab">
+                        <span class="glyphicon glyphicon-bullhorn"></span>&nbsp;招生信息
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#jyxx" id="jyxx_a" data-toggle="tab">
+                        <span class="glyphicon glyphicon-briefcase"></span>&nbsp;就业信息
+                     </a>
+                  </li>
+               </ul>
+               <!--选项板内容-->
+               <div class="tab-content">
+                  <!--招生信息选项面板-->
+                  <div class="tab-pane fade in active" id="zsxx">
+                     <a class="list-group-item" href="#">软件工程专业2016年招生简章</a>
+                     <a class="list-group-item" href="#">软件工程专业2016年招生计划分配</a>
+                     <a class="list-group-item" href="#">软件工程专业2016年招生录取办法</a>
+                     <a class="list-group-item" href="#">软件工程专业2016年招生宣讲会</a>  
+                  </div>
+                  <!--就业信息选项面板-->
+                  <div class="tab-pane fade" id="jyxx">
+                    <div class="tab-pane fade in active">
+                      <a class="list-group-item" href="#">软件工程专业2016届毕业生就业情况</a>
+                      <a class="list-group-item" href="#">毕业三年后薪资最高的十个专业</a>
+                      <a class="list-group-item" href="#">2016年中国大学生就业报告发布</a>
+                      <a class="list-group-item" href="#">2016年就业前景分析</a>
+                    </div> 
+                  </div>
+               </div>
+            </div>
+         </div>
+       </div>
+       <div class="row">
+         <!--图文列表制作-->
+         <div class="col-xs-12 col-sm-9">
+            <div class="panel panel-primary">
+               <div class="panel-heading">
+                  <h3 class="panel-title">
+                     <a href="#" style="float:right;">更多....</a>
+                     <span class="glyphicon glyphicon-picture"></span>&nbsp;&nbsp;校园文化
+                  </h3>
+               </div>
+               <div class="panel-body">
+                 <div class="media">
+                   <a class="pull-left" href="#">
+                     <img src="images/b5.jpg" class="media-object" img-thumbnail img-response alt="..." width="60px" height="40px"/>
+                   </a>
+                   
+                   <div class="media-body">
+                      <h4 class="media-heading">
+                        <a href="#">标题文字</a>
+                        <p>办公室<time update datetime="2014-05-30">2014-05-30<time></p>
+                        <p>简要内南京森风科技的南方科技的女的开发和是克服了考试管理费的看见你发快递</p>
+                      </h4>
+                   </div>
+                 </div>
+               </div>
+            </div>
+         </div>
+         <!--快捷通道的制作-->
+         <div class="col-xs-12 col-sm-3">
+           <div class="panel panel-primary" id="divChannelLink">
+             <div class="panel-heading">
+               <h3 class="panel-title">
+                 <span class="glyphicon glyphicon-hand-right"></span>&nbsp;&nbsp;快捷通道
+               </h3>
+             </div>
+                 <div class="panel-body">
+                 <div class="userRegisterNotice">
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+               </div>
+               <div class="userRegisterNotice">
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+               </div>
+               <div class="userRegisterNotice">
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+                   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                     <a href="#">
+                       <img src="images/b12.jpg" width="30px" height="30px" class="img-responsive img-thumbnail"/>
+                     </a>
+                   </div>
+               </div>
+             </div>
+           </div>
+         </div>
+         
+       </div>
+      </div>
+      <!--底部版权信息开始-->
+      <footer id="divFooter">
+        <div class="container">
+          <div class="row rowLinkLogo">
+            <div class="col-md-3 col-xs-4 col-sm-3 col-lg-3n leftLink ">
+               <ul>
+                 <li><a href="#">学院概况</a></li>
+                 <li><a href="#">教育教学</a></li>
+                 <li><a href="#">科学研究</a></li>
+                 <li><a href="#">学生工作</a></li>
+                 <li><a href="#">招生就业</a></li>
+                 <li><a href="#">专业介绍</a></li>
+               </ul>
+            </div>
+            <div class="col-xs-4 col-md-6 col-sm-6 col-lg-6 centerLogo">
+               <center>
+                 <img class="img-responsive" src="images/b9.jpg" width="60px" height="50px"/>
+               </center>
+               <p>0744-8358630 | 0744-8202008
+                 <br/><a href="#">jsdxrjxy@163.com</a>
+               </p>
+            </div>
+            <div class="col-xs-4 col-md-3 col-sm-3 col-lg-3 rightLink">
+              <ul>
+                <li><a href="#">吉首大学</a></li>
+                <li><a href="#">中软国际</a></li>
+                <li><a href="#">中软国际ETC</a></li>
+                <li><a href="#">青软培训</a></li>
+                <li><a href="#">苏软培训</a></li>
+                <li><a href="#">深圳软酷</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="divCopyright">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+                <center>
+                  地址：湖南省张家界市子午路 |
+                  版权所有：吉首大学软件外包学院
+                </center>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!--底部版权信息结束-->
+    <div class="container">
+       <div class="modal fade" id="userRegisterModal" role="dialog" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                 <!--这行代码会出现一个叉来关闭弹窗-->
+                 <input type="button" value="&times;" class="close" data-dismiss="modal" aria-hidden="true" />
+                 <h4 class="modal-title">
+                   <span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户注册
+                 </h4>
+               </div>
+               
+               <div class="modal-body">
+                  <div class="row">
+                    <div class="userRegisterText">用户名</div>
+                    <div class="userRegisterInput">
+                      <input type="text" class="form-control" name="username"/>
+                      <p class="userRegisterNotice">6~18个字符，可以使用字母、数字、下划线需以字母开头</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="userRegisterText">密码</div>
+                    <div class="userRegisterInput">
+                      <input type="password" class="form-control" name="psw"/>
+                      <p class="userRegisterNotice">6~16个字符，区分大小写</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="userRegisterText">确认密码</div>
+                    <div class="userRegisterInput">
+                      <input type="password" class="form-control" name="psw"/>
+                      <p class="userRegisterNotice">请再次填写密码</p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="userRegisterText">Email</div>
+                    <div class="userRegisterInput">
+                      <input type="text" class="form-control" name="email"/>
+                      <p class="userRegisterNotice">Email格式:rjxy@163.com</p>
+                    </div>
+                  </div>
+
+               </div>
+               <div class="modal-footer">
+                  <input type="submit" class="btn btn-success" value="立即注册"/>
+               </div>    
+            </div>
+         </div>
+       </div>
+      <div>
+    </body>
+</html>

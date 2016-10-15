@@ -1,0 +1,132 @@
+/*搜索框的样式*/
+#frmSearch{
+    padding: 10px 0;
+}
+
+#logo{
+    width: 300px;
+    height: 60px;
+    border-radius: 30px;
+}
+
+
+ /*由于通知公告面板长度有限，超过面板长度的列表文字会自动换行，影响美观，所有用css样式设置多余的文字为省略号*/
+  .list-group-item a{white-space:nowrap;
+                     word-break:keep-all;
+                     overflow:hidden;
+                     text-overflow:ellipsis;
+                     display:block;
+                     font:15px "Microsoft YaHei";
+                   }
+ /*轮播图片的文字排版不美观，需要自定义样式*/
+ .carousel-caption{background:#111111;
+                   color:#ffffff;
+                   opacity:0.7;
+                   filter:alpha(opacity=70);
+                   font:12px "Microsoft YaHei";
+                   width:100%;
+                   left:0px;
+                   bottom:0;
+                   padding:0 5px;
+                   text-align:left;}
+  .userRegisterText{display:inline-block;
+                    width:20%;
+                    text-align:right;
+                    padding-right:5px;
+                    font:bold 15px "Microsoft YaHei";
+                    vertical-align:top;}
+   .userRegisterInput{display:inline-block;
+                      width:70%;
+                    }
+    .userRegisterNotice{
+                    font:15px "Microsoft YaHei";
+                    color:#444444;
+                    padding:8px 0px;}
+
+/*自定义选项卡标题样式*/
+   #tab_ul li a:focus{
+                      background:#337ab7;
+                      color:#ffffff;
+                     }
+
+.img-thumbnail{
+	-moz-transition:all 2s ease-in-out;
+	-webkit-transition:all 2s ease-in-out;
+	-o-transition:all 2s ease-in-out;
+	-ms-transition:all 2s ease-in-out;
+	transition:all 2s ease-in-out;
+	}
+	
+.img-thumbnail:hover{
+	-moz-transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+	-o-transform:rotateY(180deg);
+	-ms-transform:rotateY(180deg);
+	transform:rotateY(180deg);
+	}
+	
+	
+/*快捷通道样式*/
+#divChannelLink .col-md-4 img{
+	margin:0 auto;
+	transform:translateY(0rem);
+	transition:all .25s ease;
+	}
+#divChannelLink .col-md-4:hover img{
+	transform:translateY(-1em);
+	}
+
+/*底部版权信息样式*/
+#divFooter{
+	background-color:#34383d;
+	color:white;
+	margin-top:20px;
+	}
+	
+#divFooter .row div{
+	color:#cccacc;
+	font:15px/30px "microsoft yahei";
+	}
+#divFooter .row a{
+	color:#cccacc;
+	}
+
+#divFooter .row ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	}
+	
+#divFooter .rowLinkLogo{
+	padding:30px 0;
+	border-bottom:1px solid #2b2e32;
+	}
+
+.rowLinkLogo .leftLink{
+	text-align:center;
+	border-right:1px solid #454a51;
+	}
+	
+.rowLinkLogo .centerLogo{
+	text-align:center;
+	font-size:16px;
+	font-weight:bold;
+	}
+
+.rowLinkLogo .rightLink{
+	text-align:left;
+	border-left:1px solid #454a51;
+	}
+	
+.divCopyright{
+	background-color:#2b2e32;
+	border-top:1px solid #3e4248;
+	padding:20px 0px;
+	text-align:center;	
+	}
+	
+.divCopyright center{
+	color:#cccacc;
+	font-weight:bold;
+	}
+	

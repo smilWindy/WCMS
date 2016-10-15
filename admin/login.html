@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>WCMS项目后台管理页设计与开发</title>
+<meta  charset="utf-8" >
+
+<!--为了让所开发的网站对移动设备友好，需添加以下标签-->
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<!--Bootstrap核心css文件-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css">
+
+<!--可选的Bootstrap主题文件(一般不用引入)-->
+<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css">
+
+<!--引入jQuery文件-->
+<script type="text/javascript" src="jquery/jquery-1.12.3.min.js"></script>
+
+<!--Bootstrap核心JavaScript文件-->
+<script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/login.css">
+<script type="text/javascript" src="js/login.js"></script>
+</head>
+
+<body>
+  <div class="container">
+   <div class="col-sm-8 col-sm-offset-2">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="glyphicon glyphicon-hand-right">
+        </span>&nbsp;&nbsp;网站后台登录</h2>
+      </div>
+      <form id="frmLogin">
+        <div class="panel-body">
+          <!--管理员登录表单制作开始-->
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-user">&nbsp;用户名</i>
+            </span>
+            <input type="text" id="txtUser" class="form-control" placeholder=""/>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-lock">&nbsp;密&nbsp;码</i>
+            </span>
+            <input type="password" id="txtPwd" class="form-control" placeholder=""/>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">
+              <i class="glyphicon glyphicon-eye-open">&nbsp;验证码</i>
+            </span>
+            <input type="text" id="txtCode" class="form-control" placeholder=""/>
+          </div>
+          <div class="input-group">
+            验证码:<label id="codeE"> </label>&nbsp;
+            <a id="aChangeCode" href="javascript:void(0)">换一张</a>
+          </div>
+          <input type="submit"  class="btn btn-primary pull-right"
+           value="用户登录"/>
+          
+          <!--管理员登录表单制作结束-->
+        </div>
+      </form>
+    </div>
+   </div>
+  </div>
+</body>
+
+</html>

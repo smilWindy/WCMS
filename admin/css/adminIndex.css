@@ -1,0 +1,42 @@
+/*******logoä¸Žå¿«æ·å¯¼èˆªæ çš„åˆ¶ä½œ*/
+#divTop{
+    position: relative;
+    height: 90px;
+    background-color:#c0c0c0;
+    overflow: hidden;
+}
+#divTop > img{
+    margin-left: 20px;
+    padding: 5px;
+}
+#divTop > #divTopMenu{
+    position: absolute;
+    top: 40px;
+    left: 350px;
+    font-size: 20px;
+}
+#divTop > #divTopMenu > ul{
+    list-style: none;
+    margin:0;
+    top: 0;
+}
+#divTop > #divTopMenu > ul >li{
+    display: inline-block;
+}
+#divTop > #divTopMenu > ul > li >a{
+    padding: 8px;
+    text-decoration: none;
+    color: #ffffff;
+    font:bold 15px "microsoft yahei";
+}
+
+
+/********easyui-tree*********/
+
+
+/************easyui-tabs****************/
+#main iframe{
+    box-sizing: border-box;
+    margin-top: 20px;
+    padding: 0 30px;
+}

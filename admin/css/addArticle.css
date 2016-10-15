@@ -1,0 +1,19 @@
+.divRow{
+    padding: 10px 20px;
+}
+
+.divRow label{
+    display: inline-block;
+    vertical-align: middle;
+    font:tahoma;
+    text-align: right;
+    width: 80px;
+}
+
+.divRow input{
+    vertical-align: middle;
+}
+
+.divRow .easyui-linkbutton{
+    width: 100px;
+}
